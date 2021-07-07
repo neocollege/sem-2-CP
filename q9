@@ -1,0 +1,22 @@
+// WAP to check if the entered number is Armstrong or not
+#include <stdio.h>
+
+int main()
+{
+    int a,b,n,sum=0;
+    printf("Enter a number : \n");
+    scanf("%d",&n);
+    b=n;
+    while(n!=0)
+    {
+        a=n%10;
+        sum = sum+a;
+        n=n/10;
+    }
+    if(b==sum)
+        printf("The number is an armstrong number");
+    else
+        printf("The number is not an armstrong number");
+    
+    return 0;
+}
