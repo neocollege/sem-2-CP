@@ -3,20 +3,19 @@
 
 int main()
 {
-    int a,b,n,sum=0;
-    printf("Enter a number : \n");
+    int n,b,a,sum=0;
+    printf("enter a number to check whether it is a armstrong number or not \n");
     scanf("%d",&n);
     b=n;
     while(n!=0)
     {
         a=n%10;
-        sum = sum+a;
+        sum=sum+ a*a*a;
         n=n/10;
     }
     if(b==sum)
-        printf("The number is an armstrong number");
+        printf("the number %d is a armstrong number\n",b);
     else
-        printf("The number is not an armstrong number");
-    
+        printf("the number %d is  not a armstrong number\n",b);
     return 0;
 }
