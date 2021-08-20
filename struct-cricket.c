@@ -8,21 +8,14 @@ struct cricket {
     char country[30];
     int bs;
     float ba;
-    char temp[1];
 };
-
-void swap(float x, float y) {
-    float temp = x;
-    x=y;
-    y=temp;
-}
+typedef struct cricket ct;
 
 void main(){
-    struct cricket p[25];
+    ct p[25],temp;
     printf("Enter the data of 25 players: \n");
-    for(int i=0;i<25;i++){
-        printf("Player %d",i+1);
-        gets(p[i].temp);
+    for(int i=0;i<10;i++){
+        printf("Player %d\n",i+1);
         printf("Enter name: \n");
         gets(p[i].name);
         printf("Country: \n");
@@ -33,20 +26,18 @@ void main(){
         scanf("%f",&p[i].ba);
     }
     
-    for(int i=0; i<24; i++){
-        for(int j=0;j<24-i;j++)
-            if(p[j].ba<p[j+1].ba)
-                swap(p[j].ba,p[j+1].ba);
+    for(int i=0; i<9; i++){
+        for(int j=0;j<9-i;j++)
+            if(p[j].ba<p[j+1].ba){
+                temp=p[j];
+                p[j]=p[j+1];
+                p[j+1]=temp;
+            }
     }
 
     printf("Players according to descending order of batting average: \n");
-    for(int i=0;i<25;i++){
+    for(int i=0;i<10;i++){
         printf("Name of Player: ");
         puts(p[i].name);
-        printf("Country: ");
-        puts(p[i].country);
-        printf("Best Score: %d\n",p[i].bs);
-        printf("Batting Average: %f\n",p[i].ba);
-        printf("\n");
     }
 }
